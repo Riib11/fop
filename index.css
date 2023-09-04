@@ -1,0 +1,53 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 2em;
+}
+
+.header-title {
+  font-size: x-large;
+}
+
+.body {
+  width: 40em;
+  margin: auto;
+  text-align: center;
+}
+
+.tile {
+  margin: 2em 1em;
+  padding: 1em;
+  border: 1px solid black;
+  text-align: left;
+}
+
+.tile-title {
+  background-color: black;
+  color: white;
+  margin-top: -1.5em;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: large;
+  font-weight: bold;
+
+}
+
+.logo-large {
+  width: 50%;
+  /* width: 20em; */
+  margin: auto;
+}
+
+.footer {
+  text-align: center;
+  background-color: black;
+  color: white;
+  min-height: 2em;
+}

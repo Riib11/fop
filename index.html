@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOP</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="header">
+    <div class="header-title">Fixed-point Oriented Programming</div>
+  </div>
+  <div class="body">
+    <div class="tile">
+      This is ongoing work by <a href="https://michaeldadams.org">Michael D. Adams</a> and <a
+        href="https://github.com/Riib11">Henry Blanchette</a>.
+    </div>
+    <img class="logo-large" src="./logo.jpg" alt="logo">
+    <div class="tile">
+      <div class="tile-title">Foliage –– Code Generator for Fixed-point Oriented Programming</div>
+      <div class="tile-body">This project is a tool for generating workqueue-style algorithms for computing fixed-points
+        given a rule system-style description. The project repository can be found here: <a
+          href="https://github.com/Riib11/fixlat-lang">https://github.com/Riib11/fixlat-lang</a>.</div>
+    </div>
+    <div class="tile">
+      <div class="tile-title">Least Fixed-points</div>
+      <div class="tile-body">The least fixed-point of a rule system is the minimal knowledge, reachable from repeated
+        applications of the rules to no knowledge to start, that cannot be expanded by more applications of the rules.
+      </div>
+    </div>
+    <div class="tile">
+      <div class="tile-title">Rule System</div>
+      <div class="tile-body">Describe a fixed-point algorithm as a sytem of inference rules.
+        <div>
+          <code><pre>
+rule startDist = Start a |- Dist a a 0
+rule edgeDist = Dist a b x, Edge b c y |- Dist a c (x + y)</pre></code>
+        </div>
+      </div>
+    </div>
+    <div class="tile">
+      <div class="tile-title">Lattice Semantics</div>
+      <div class="tile-body">All relations are over lattice-ordered (or semilattice-ordered) types. So, when new
+        knowledge is inferred, lattice-greater instances of a relation <i>subsume</i> lattice-lesser instances of that
+        relation. There is a convenient syntax for specifying the lattice order over user-defined types.
+        <div>
+          <code><pre>
+data Nat = Zero | Suc Nat | Inf deriving BoundedLattice
+lat Node = Discrete Nat
+lat Length = Reverse Nat
+</pre></code>
+        </div>
+      </div>
+    </div>
+    <div class="tile">
+      <div class="tile-title">Optimizations</div>
+      <div class="tile-body">There are various opportunities for algorithm-level optimizations before transpilation to
+        the target language:
+        <ul>
+          <li>Relation encodings</li>
+          <li>Data representations</li>
+          <li>Algorithm transformations</li>
+          <li>Parallelization</li>
+          <li>...</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tile">
+      <div class="tile-title">Use Cases</div>
+      <div class="tile-body">
+        The following are some examples of fixed-point computations that we'd like to write using our tool:
+        <ul>
+          <li><b>Graphs</b>: traversal, dominators</li>
+          <li><b>DFA Minimization</b>: reachability, liveness, distinguishability</li>
+          <li><b>Tree automata</b>: minimization, intersection</li>
+          <li><b>Static analysis</b>: abstract interpretation, live variable / dead code analysis, null-pointer analysis,
+            symbolic execution</li>
+          <li><b>Parsing</b>: first and follow sets, emptiness, nullability, item sets (LR parser generation)</li>
+          <li><b>Semantics</b>: some type-checking/inference, normalization</li>
+          <li><b>Haskell implementation</b>: strictness analysis</li>
+          <li>...</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <!-- Footer -->
+  </div>
+</body>
+
+</html>
